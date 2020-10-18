@@ -46,7 +46,10 @@ jobs:
       displayName: oneliner 2 for job3
   
 - job: job4
-  
+  dependsOn:
+   - job1
+   - job2
+   
   steps:
     
     - script: echo Job4 script1, Avinash
