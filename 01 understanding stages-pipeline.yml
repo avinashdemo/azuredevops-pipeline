@@ -16,32 +16,38 @@ stages:
           - bash: echo Value of variable Pipelinelevelvariable is $(Pipelinelevelvariable) 
 
   - stage: DevBuild
+    variables:
+      env: Dev
     dependsOn: Build
     jobs:
       - job: DevBuildJob1
         steps:
-          - bash: echo DevBuild Job1 Step1
-          - bash: echo DevBuild Job1 Step2
+          - bash: echo $(env)Build Job1 Step1
+          - bash: echo $(env)Build Job1 Step2
       - job: DevBuildJob2
         steps:
-          - bash: echo Devbuild Job2 Step1
+          - bash: echo $(env)build Job2 Step1
 
   - stage: QABuild
+    variables:
+      env: QA
     dependsOn: Build
     jobs:
       - job: QABuildJob1
         steps:
-          - bash: echo QABuild Job1 Step1
-      - job: DevBuildJob2
+          - bash: echo $(env)Build Job1 Step1
+      - job: QABuildJob2
         steps:
-          - bash: echo QAbuild Job2 Step1
+          - bash: echo $(env)build Job2 Step1
 
   - stage: ProdBuild
+    variables:
+      env: Prod
     dependsOn:
       - DevBuild
       - QABuild
     jobs:
       - job: ProdBuildJob1
         steps:
-          - bash: echo ProdBuild Job1 Step1
-          - bash: echo ProdBuild Job1 Step2
+          - bash: echo $(env)Build Job1 Step1
+          - bash: echo $(env)Build Job1 Step2
