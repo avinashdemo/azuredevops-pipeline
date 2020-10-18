@@ -15,6 +15,7 @@ stages:
           - bash: echo First build
 
   - stage: DevBuild
+    dependsOn: Build
     jobs:
       - job: DevBuildJob1
         steps:
@@ -25,6 +26,7 @@ stages:
           - bash: echo Devbuild Job2 Step1
 
   - stage: QABuild
+    dependsOn: Build
     jobs:
       - job: QABuildJob1
         steps:
@@ -34,14 +36,11 @@ stages:
           - bash: echo QAbuild Job2 Step1
 
   - stage: ProdBuild
+    dependsOn:
+      - DevBuild
+      - QABuild
     jobs:
       - job: ProdBuildJob1
         steps:
           - bash: echo ProdBuild Job1 Step1
           - bash: echo ProdBuild Job1 Step2
-
-
-
-
-
-
