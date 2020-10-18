@@ -32,5 +32,16 @@ jobs:
         echo Add other tasks for job2
         echo complete job2
       displayName: Multiline for job2
+      
+      
+      
+ - job: job3
+ 
+   steps:
+     - script: echo job3, Avinash
+       displayName: oneliner for job3
+       
+     - script: echo job3, second step
+       displayName: oneliner 2 for job3
   
   
