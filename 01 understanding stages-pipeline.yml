@@ -13,6 +13,7 @@ stages:
       - job: BuildJob1
         steps:
           - bash: echo First build
+          - bash: echo Value of variable Pipelinelevelvariable is $(Pipelinelevelvariable) 
 
   - stage: DevBuild
     dependsOn: Build
