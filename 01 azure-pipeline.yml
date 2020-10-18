@@ -23,7 +23,7 @@ jobs:
     displayName: 'Run a multi-line script for job1'
 
 - job: job2
-  
+  dependsOn: job1
   steps:
     - script: echo Job2, Avinash
       displayName: One-liner for job2
@@ -36,6 +36,7 @@ jobs:
       
       
 - job: job3
+  dependsOn: job2
  
   steps:
     - script: echo job3, Avinash
