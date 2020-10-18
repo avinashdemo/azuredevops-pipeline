@@ -45,4 +45,13 @@ jobs:
     - script: echo job3, second step
       displayName: oneliner 2 for job3
   
+- job: job4
+  
+  steps:
+    
+    - script: echo Job4 script1, Avinash
+      displayName: oneliner1 for job4
+    
+    - script: echo Job4 script2, Avinash
+      displayName: oneliner2 for job 4
   
