@@ -1,0 +1,12 @@
+[Unit]
+Description=node exporter for Prometheus
+After=network-online.target
+
+[Service]
+WorkingDirectory=/etc
+User=root
+Restart=on-failure
+ExecStart=/etc/node_exporter --web.config={{ config_path }}/tls_config.yml  --web.listen-address=:10083 --collector.processes --no-collector.infiniband 
+
+[Install]
+WantedBy=multi-user.target
