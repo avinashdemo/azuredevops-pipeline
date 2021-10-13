@@ -1,0 +1,5 @@
+tlsConfig :
+  tlsCertPath : "{{ certs_path }}/{{ certificate_name }}"
+  tlsKeyPath : "{{ certs_path }}/{{ certificate_key_name }}"
+  clientAuth : "VerifyClientCertIfGiven"
+  clientCAs : "{{ certs_path }}/{{ certificate_pem_name }}"
